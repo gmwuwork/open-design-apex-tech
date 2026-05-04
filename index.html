@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Tech - 專業網頁開發與 AI 解決方案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: oklch(100% 0 0);
+            --surface: oklch(98% 0.005 250);
+            --fg: oklch(15% 0.02 250);
+            --muted: oklch(55% 0.02 250);
+            --border: oklch(92% 0.01 250);
+            /* Hyper-saturated brand colors */
+            --gradient-start: oklch(55% 0.28 25);
+            --gradient-end: oklch(70% 0.25 45);
+            --accent: oklch(60% 0.3 30);
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--fg);
+            background-color: var(--bg);
+            scroll-behavior: smooth;
+        }
+        .bg-gradient-brand {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        }
+        .text-gradient-brand {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .geometric-bg-white {
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.2) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .hero-glow {
+            box-shadow: 0 0 100px -20px var(--gradient-start);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: 'oklch(55% 0.28 25)',
+                            orange: 'oklch(70% 0.25 45)',
+                            accent: 'oklch(60% 0.3 30)',
+                        }
+                    },
+                    borderRadius: {
+                        'brand': '12px',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+    <div id="app">
+        <!-- Navigation -->
+        <header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+            <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+                <a href="#" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <div class="w-8 h-8 bg-gradient-brand rounded-lg flex items-center justify-center text-white">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight">Apex <span class="text-brand-accent">Tech</span></span>
+                </a>
+                
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#services" class="hover:text-brand-accent transition-colors">服務項目</a>
+                    <a href="#features" class="hover:text-brand-accent transition-colors">核心優勢</a>
+                    <a href="#partners" class="hover:text-brand-accent transition-colors">合作夥伴</a>
+                    <a href="apex-modern.html" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 bg-amber-400 text-gray-900 rounded-brand font-bold hover:bg-amber-300 transition-all shadow-lg shadow-amber-400/30 border-2 border-transparent hover:border-brand-red">
+                        🌐 頂尖風格版
+                    </a>
+                    <a href="#contact" class="px-5 py-2.5 bg-gradient-brand text-white rounded-brand hover:opacity-90 transition-opacity shadow-lg shadow-brand-red/20">
+                        聯繫我們
+                    </a>
+                </div>
+
+                <button class="md:hidden text-gray-600">
+                    <i data-lucide="menu"></i>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-24 md:pt-52 md:pb-40 overflow-hidden bg-gradient-brand text-white">
+            <!-- Decorative Elements -->
+            <div class="absolute inset-0 opacity-30 geometric-bg-white"></div>
+            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] opacity-50"></div>
+            
+            <!-- Hero Background Image -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.2] pointer-events-none mix-blend-soft-light scale-110">
+                <img src="assets/images/hero-bg.jpg" alt="Hero Background" class="w-full h-full object-cover">
+            </div>
+            
+            <div class="container mx-auto px-6 relative z-20">
+                <div class="max-w-4xl mx-auto text-center">
+                    <!-- Text Content -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold mb-8 border border-white/30 tracking-wide uppercase">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                        </span>
+                        Next-Gen Digital Solutions
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.95] drop-shadow-2xl">
+                        全方位 <span class="text-white underline decoration-white/30 underline-offset-8">網頁開發</span> <br> 
+                        <span class="opacity-90">與 AI 智慧解決方案</span>
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl text-white/95 mb-12 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-md">
+                        為企業量身定制 RWD 響應式網頁、SEO 優化與智慧系統整合，協助您在數位轉型浪潮中保持領先。
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                        <a href="#services" class="w-full sm:w-auto px-12 py-5 bg-white text-brand-red rounded-brand font-extrabold text-lg shadow-[0_20px_50px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95 transition-all hero-glow">
+                            開始數位轉型
+                        </a>
+                        <a href="#" class="w-full sm:w-auto px-12 py-5 bg-black/10 border-2 border-white/40 rounded-brand font-extrabold text-lg text-white backdrop-blur-md hover:bg-white/10 transition-all inline-flex items-center justify-center gap-3">
+                            了解更多 <i data-lucide="arrow-right" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Fade -->
+            <div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] aspect-square bg-gradient-to-t from-white via-transparent to-transparent z-10"></div>
+        </section>
+
+        <!-- Service Sections -->
+        <section id="services" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-20">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">專業技術服務</h2>
+                    <p class="text-gray-500">從概念到實踐，我們提供最全面的數位解決方案</p>
+                </div>
+
+                <div class="space-y-32">
+                    <div v-for="(service, index) in services" :key="index" 
+                         :class="['flex flex-col md:items-center gap-12', index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse']">
+                        <div class="flex-1 space-y-6">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-red/10 flex items-center justify-center text-brand-red">
+                                <i :data-lucide="service.icon" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold">[[ service.title ]]</h3>
+                            <p class="text-gray-500 leading-relaxed text-lg">
+                                [[ service.description ]]
+                            </p>
+                            <ul class="space-y-3">
+                                <li v-for="feature in service.features" :key="feature" class="flex items-center gap-3 text-gray-600 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-orange"></i>
+                                    [[ feature ]]
+                                </li>
+                            </ul>
+                            <a href="#" class="inline-flex items-center gap-2 text-brand-red font-semibold hover:underline decoration-2 underline-offset-4">
+                                了解詳情 <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                        <div class="flex-1 relative">
+                            <div class="aspect-video bg-gray-50 border border-gray-100 rounded-[32px] overflow-hidden group shadow-lg">
+                                <div class="absolute inset-0 bg-gradient-brand opacity-0 group-hover:opacity-10 transition-opacity z-10"></div>
+                                <img :src="service.image" :alt="service.title" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <div class="relative w-24 h-24 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div class="absolute inset-0 bg-white/20 backdrop-blur-md rounded-full border border-white/30"></div>
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <i :data-lucide="service.icon" class="w-10 h-10 text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Highlights (Gradient Background) -->
+        <section id="features" class="py-24 bg-gradient-brand relative overflow-hidden text-white">
+            <div class="absolute inset-0 opacity-10 geometric-bg"></div>
+            <div class="container mx-auto px-6 relative">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">為什麼選擇 Apex Tech？</h2>
+                    <p class="text-white/80">我們結合技術深度與商業洞察，為您創造持久價值</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div v-for="feature in highlights" :key="feature.title" 
+                         class="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-brand hover:bg-white/20 transition-all hover:-translate-y-1">
+                        <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-brand-red mb-6 shadow-xl">
+                            <i :data-lucide="feature.icon" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">[[ feature.title ]]</h4>
+                        <p class="text-white/70 leading-relaxed">
+                            [[ feature.description ]]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted Partners -->
+        <section id="partners" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-20">
+                    <span class="text-sm font-bold text-gray-400 uppercase tracking-[0.3em] inline-block pb-4">Trusted By Leaders</span>
+                    <div class="h-px w-12 bg-brand-red mx-auto"></div>
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-y-16">
+                    <div v-for="partner in partners" :key="partner.name" 
+                         class="w-1/2 md:w-1/3 lg:w-auto px-8 flex items-center justify-center">
+                        <img :src="partner.logo" :alt="partner.name" 
+                             class="h-16 md:h-24 w-auto object-contain opacity-40 grayscale hover:opacity-100 hover:grayscale-0 hover:scale-110 transition-all duration-500">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="bg-white border-t border-gray-100 pt-20 pb-10">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-4 gap-12 mb-16">
+                    <div class="col-span-1">
+                        <div class="flex items-center gap-2 mb-6">
+                            <div class="w-8 h-8 bg-gradient-brand rounded-lg flex items-center justify-center text-white">
+                                <i data-lucide="zap" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-xl font-bold tracking-tight">Apex <span class="text-brand-accent">Tech</span></span>
+                        </div>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6">
+                            致力於為全球企業提供最先進的網頁開發與 AI 技術解決方案。
+                        </p>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:text-brand-red hover:bg-brand-red/10 transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:text-brand-red hover:bg-brand-red/10 transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:text-brand-red hover:bg-brand-red/10 transition-all"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5 class="font-bold mb-6">服務項目</h5>
+                        <ul class="space-y-4 text-sm text-gray-500">
+                            <li><a href="#" class="hover:text-brand-red transition-colors">網頁設計與開發</a></li>
+                            <li><a href="#" class="hover:text-brand-red transition-colors">AI 系統整合</a></li>
+                            <li><a href="#" class="hover:text-brand-red transition-colors">SEO 搜尋優化</a></li>
+                            <li><a href="#" class="hover:text-brand-red transition-colors">雲端架構服務</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 class="font-bold mb-6">快速連結</h5>
+                        <ul class="space-y-4 text-sm text-gray-500">
+                            <li><a href="#" class="hover:text-brand-red transition-colors">關於我們</a></li>
+                            <li><a href="#" class="hover:text-brand-red transition-colors">成功案例</a></li>
+                            <li><a href="#" class="hover:text-brand-red transition-colors">技術部落格</a></li>
+                            <li><a href="#" class="hover:text-brand-red transition-colors">人才招募</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 class="font-bold mb-6">聯繫我們</h5>
+                        <ul class="space-y-4 text-sm text-gray-500">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="mail" class="w-4 h-4 text-brand-red"></i> contact@apex.tech
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="phone" class="w-4 h-4 text-brand-red"></i> +886 (2) 2345 6789
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-brand-red"></i> 台北市信義區技術大道 101 號
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="pt-8 border-t border-gray-100 text-center text-xs text-gray-400">
+                    &copy; 2026 Apex Tech Service. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            delimiters: ['[[', ']]'],
+            setup() {
+                const services = [
+                    {
+                        title: '高效能網頁開發',
+                        icon: 'monitor',
+                        image: 'assets/images/service-web.jpg',
+                        description: '打造極速加載、流暢體驗的響應式網頁。我們專注於性能優化與極致的用戶體驗，確保您的品牌在任何設備上都能完美呈現。',
+                        features: ['Next.js / Vue 高階架構', 'Core Web Vitals 達標', '全平台 RWD 適配']
+                    },
+                    {
+                        title: 'AI 戰略諮詢與整合',
+                        icon: 'cpu',
+                        image: 'assets/images/service-ai.jpg',
+                        description: '整合生成式 AI 與自動化流程，為企業量身定制智慧化轉型路徑。從智能客服到大數據預測，讓 AI 成為您的競爭力。',
+                        features: ['LLM 模型微調與應用', '自動化流程 (RPA)', '智慧數據分析']
+                    },
+                    {
+                        title: '雲端架構優化',
+                        icon: 'cloud',
+                        image: 'assets/images/service-cloud.jpg',
+                        description: '提供高可用、彈性擴展的雲端解決方案。我們協助您在 AWS/GCP/Azure 上構建穩健的基礎設施，降低營運成本。',
+                        features: ['Serverless 彈性架構', '微服務容器化 (K8s)', '成本監控與優化']
+                    },
+                    {
+                        title: '網路安全防護',
+                        icon: 'shield-check',
+                        image: 'assets/images/service-security.jpg',
+                        description: '全方位的資安稽核與防禦體系。守護您的企業數據資產，防止潛在的威脅與漏洞攻擊，建立值得信賴的安全屏障。',
+                        features: ['弱點掃描與滲透測試', 'DDoS 攻擊防禦', '數據加密傳輸']
+                    },
+                    {
+                        title: 'SEO 搜尋引擎優化',
+                        icon: 'search',
+                        image: 'assets/images/service-seo.jpg',
+                        description: '精準關鍵字策略與內容優化，讓您的品牌在搜尋結果中脫穎而出。透過數據驅動的優化手段，帶來高品質的自然流量。',
+                        features: ['內容行銷策略', '技術性 SEO 審核', '競爭對手深度分析']
+                    },
+                    {
+                        title: '智慧系統整合',
+                        icon: 'layers',
+                        image: 'assets/images/service-system.jpg',
+                        description: '打破數據孤島，連結現有系統與新技術。我們擅長處理複雜的 API 對接與遺留系統升級，大幅提升企業營運效率。',
+                        features: ['企業級 API 設計', 'ERP / CRM 系統對接', '微服務拆解與重構']
+                    }
+                ];
+
+                const highlights = [
+                    {
+                        title: '極致效能 (Efficiency)',
+                        icon: 'zap',
+                        description: '透過現代化工具鏈與代碼優化，確保您的網頁在毫秒內響應，提升轉化率。'
+                    },
+                    {
+                        title: '深度定制 (Customization)',
+                        icon: 'palette',
+                        description: '我們拒絕套版，每一行代碼都為您的業務目標服務，打造獨一無二的品牌形象。'
+                    },
+                    {
+                        title: '技術支援 (Technical Support)',
+                        icon: 'headphones',
+                        description: '專業團隊 24/7 監控與維護，解決所有技術難題，讓您可以專注於核心業務。'
+                    }
+                ];
+
+                const partners = [
+                    { name: 'NovaCode', logo: 'assets/images/partner-1.jpg' },
+                    { name: 'CoreFlow', logo: 'assets/images/partner-2.jpg' },
+                    { name: 'Strata Systems', logo: 'assets/images/partner-3.jpg' },
+                    { name: 'Quantum', logo: 'assets/images/partner-4.jpg' },
+                    { name: 'Synapse', logo: 'assets/images/partner-5.jpg' },
+                    { name: 'Nexus', logo: 'assets/images/partner-6.jpg' }
+                ];
+
+                return {
+                    services,
+                    highlights,
+                    partners
+                };
+            },
+            mounted() {
+                lucide.createIcons();
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
