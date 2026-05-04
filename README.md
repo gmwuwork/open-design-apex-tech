@@ -16,6 +16,22 @@ Apex Tech 專業提供 RWD 響應式網頁、SEO 優化與 AI 智慧系統整合
 
 ---
 
+## 專案截圖
+
+| 經典版 - 導航列 | 經典版 - Hero 區塊 |
+|---|---|
+| ![截圖 1](https://raw.githubusercontent.com/gmwuwork/open-design-apex-tech/main/screenshots/%E6%88%AA%E5%9C%96%202026-05-04%2022.15.41.jpg) | ![截圖 2](https://raw.githubusercontent.com/gmwuwork/open-design-apex-tech/main/screenshots/%E6%88%AA%E5%9C%96%202026-05-04%2022.20.43.jpg) |
+
+| 經典版 - 服務項目 | 經典版 - 合作夥伴 |
+|---|---|
+| ![截圖 3](https://raw.githubusercontent.com/gmwuwork/open-design-apex-tech/main/screenshots/%E6%88%AA%E5%9C%96%202026-05-04%2022.27.02.jpg) | ![截圖 4](https://raw.githubusercontent.com/gmwuwork/open-design-apex-tech/main/screenshots/%E6%88%AA%E5%9C%96%202026-05-04%2022.27.17.jpg) |
+
+| 經典版 - 核心優勢 | 經典版 - 頁面底部 |
+|---|---|
+| ![截圖 5](https://raw.githubusercontent.com/gmwuwork/open-design-apex-tech/main/screenshots/%E6%88%AA%E5%9C%96%202026-05-04%2022.29.51.jpg) | ![截圖 6](https://raw.githubusercontent.com/gmwuwork/open-design-apex-tech/main/screenshots/%E6%88%AA%E5%9C%96%202026-05-04%2022.38.49.jpg) |
+
+---
+
 ## 學習資源
 
 ### Open Design / opendesign
